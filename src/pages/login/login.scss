@@ -1,0 +1,22 @@
+.wrapper {
+  background: linear-gradient(
+    89.32deg,
+    #00468a 13.18%,
+    rgba(0, 70, 149, 0.98) 44.49%,
+    rgba(0, 86, 175, 0.83) 88.32%
+  );
+  height: 100%;
+}
+
+.background {
+  background: linear-gradient(90deg, #00365a 30.15%, #006cb5 90.84%);
+}
+
+.signup_signin_res {
+  @media screen and (max-width: 769px) {
+    width: 80%;
+  }
+  @media screen and (max-width: 450px) {
+    width: 90%;
+  }
+}

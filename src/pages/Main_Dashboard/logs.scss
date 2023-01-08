@@ -1,0 +1,53 @@
+@media screen and (min-width: 1127px) {
+  .logs_table::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+.logs_wrapper {
+  .logs_widget {
+    box-shadow: 38px 26px 140px -63px rgba(0, 0, 0, 0.25);
+    .logs_table {
+      @media screen and (max-width: 587px) {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+
+      &::-webkit-scrollbar {
+        background: #e0e0e0;
+        border-radius: 8px;
+        height: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #2f81cd;
+        border-radius: 8px;
+        border: 2px solid #e0e0e0;
+        &:hover {
+          background-color: #00468a;
+        }
+      }
+      .logs_title {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        justify-items: center;
+        width: 100%;
+        font-family: "Inter";
+        @media screen and (max-width: 1126px) {
+          width: 800px;
+        }
+      }
+      .logs_content {
+        width: 100%;
+        @media screen and (max-width: 1126px) {
+          width: 800px;
+        }
+        .logs_item1 {
+          * {
+            font-family: "Inter";
+          }
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          justify-items: center;
+        }
+      }
+    }
+  }
+}

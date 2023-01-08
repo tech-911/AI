@@ -1,0 +1,26 @@
+// .about_wrapper {
+//   &::-webkit-scrollbar {
+//     display: none;
+//   }
+// }
+
+.about_resContent {
+  .about_restext {
+    @media screen and (max-width: 1236px) {
+      overflow-y: scroll;
+    }
+    &::-webkit-scrollbar {
+      background: #e0e0e0;
+      border-radius: 8px;
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #4b8ecc93;
+      border-radius: 8px;
+      border: 2px solid #e0e0e0;
+      &:hover {
+        background-color: #00458a83;
+      }
+    }
+  }
+}
