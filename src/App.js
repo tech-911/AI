@@ -74,9 +74,9 @@ class App extends Component {
               </Private_route>
             }
           >
-            <Route index element={<About />} />
+            <Route index element={<Monitor/>} />
             <Route path="/dashboard/monitor" element={<Monitor />} />
-            <Route path="/dashboard/about" element={<About />} />
+            {/* <Route path="/dashboard/about" element={<About />} /> */}
             <Route path="/dashboard/logs" element={<Logs />} />
           </Route>
         </Routes>
