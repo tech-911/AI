@@ -1,5 +1,70 @@
-.monitor_graph {
-  background: #ffffff;
-  box-shadow: 0px 0px 46px 15px rgba(0, 0, 0, 0.22);
-  border-radius: 8px;
+.monitor_wrapper {
+  .monitor_section {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    .folderName {
+      background: #ffffff;
+      box-shadow: 0px 4px 14px -7px rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      width: 50%;
+      padding: 2.5rem 2.5rem;
+      .folderNameLabel {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        display: flex;
+        align-items: center;
+      }
+      .folderNameInput {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 16px;
+        border: 1px solid #d3d0d9;
+        border-radius: 8px;
+      }
+      .folderNameButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 14px;
+        background: #9c27b0;
+        border-radius: 8px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 160%;
+        color: #ffffff;
+      }
+    }
+    .capture {
+      background: #ffffff;
+      box-shadow: 0px 4px 14px -7px rgba(0, 0, 0, 0.25);
+      border-radius: 6px;
+      width: 45%;
+      padding: 2rem;
+      .preview {
+      }
+      .capture_button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 14px;
+        background: #9c27b0;
+        border-radius: 8px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 160%;
+        color: #ffffff;
+      }
+    }
+  }
 }

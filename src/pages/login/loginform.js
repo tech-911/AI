@@ -189,7 +189,7 @@ class Login extends Component {
                 this.state.renderSigning !== "login" ? "hidden" : ""
               }`}
             >
-              Not a member?{" "}
+              Not a user?{" "}
               <button
                 className="text-[#0048A9]"
                 onClick={(e) => {

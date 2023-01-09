@@ -1,53 +1,31 @@
 import React, { Component } from "react";
 import "./monitor.scss";
 import { data } from "./graphData";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import BreadCrumb from "../../components/dashboardBreadcrumbs/BreadCrumb";
 
 class Monitor extends Component {
   render() {
     return (
-      <div className="flex flex-col h-[100%] w-[100%]">
-        <div className="monitor_graph h-[70vh] mx-[2.5rem] my-16 pr-10 py-10">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart
-              width={200}
-              height={100}
-              data={data}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="hit_and_run"
-                stroke="#8884d8"
-                activeDot={{ r: 6 }}
-              />
-              <Line
-                type="monotone"
-                dataKey="car_theft"
-                stroke="#82ca9d"
-                activeDot={{ r: 6 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+      <div className="monitor_wrapper flex flex-col h-[100%] w-[100%]">
+        <BreadCrumb currentLink="Test2" />
+        <div className="monitor_section flex flex-row justify-between mt-20">
+          <div className="folderName">
+            <label className="folderNameLabel" htmlFor="folderName">
+              Folder Name
+            </label>
+            <input
+              className="outline-[#5d6a77] mt-4 w-full folderNameInput"
+              type="text"
+              id="folderName"
+            />
+            <button className="mt-6 w-full folderNameButton">
+              Create Folder
+            </button>
+          </div>
+          <div className="capture">
+            <div className="preview"></div>
+            <button className="capture_button">Capture</button>
+          </div>
         </div>
       </div>
     );

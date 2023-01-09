@@ -6,6 +6,7 @@ import { TbLogout } from "react-icons/tb";
 import Logo from "../../assets/logo.png";
 import { CgDatabase } from "react-icons/cg";
 import { MdOutlineMenu } from "react-icons/md";
+import { RiRadioButtonLine } from "react-icons/ri";
 import "./dash.scss";
 import { useState } from "react";
 
@@ -17,7 +18,7 @@ function Dashboard({ siginOUt }) {
     <div className="h-full dash_wrapper">
       <div className="flex items-start h-full dash_container">
         <div
-          className={`bg-[#01336A] h-full dash_sidebar ${
+          className={`bg-[#5d6a77] h-full dash_sidebar ${
             sidebar ? "dash_sidebarOpen" : "dash_sidebarClose"
           }`}
         >
@@ -30,47 +31,47 @@ function Dashboard({ siginOUt }) {
 
           <div>
             <Link
-              to="/dashboard/about"
-              className="flex items-center text-[white] ml-6"
+              to="/dashboard/test1"
+              className="hover:text-[#001A35] flex items-center text-[white] ml-6"
             >
               <div
                 className={`flex items-center  ${
-                  path.includes("about") ? "border-r-8" : ""
+                  path.includes("test1") ? "border-r-8 border-r-[#001A35] text-[#001A35]" : ""
                 } w-full py-3`}
               >
-                <BsInfoCircle className="text-[24px]" />
+                <RiRadioButtonLine className="text-[24px]" />
                 <p className="text-[15px] font-[inter] font-semibold ml-2">
-                  About
+                  Test 1
                 </p>
               </div>
             </Link>
             <Link
-              to="/dashboard/monitor"
-              className="flex items-center text-[white] ml-6"
+              to="/dashboard/test2"
+              className="hover:text-[#001A35] flex items-center text-[white] ml-6"
             >
               <div
                 className={`flex items-center ${
-                  path.includes("monitor") ? "border-r-8" : ""
+                  path.includes("test2") ? "border-r-8 border-r-[#001A35] text-[#001A35]" : ""
                 } w-full py-3`}
               >
-                <FiMonitor className="text-[24px]" />
+                <RiRadioButtonLine className="text-[24px]" />
                 <p className="text-[15px] font-[inter] font-semibold ml-2">
-                  Monitor
+                  Test 2
                 </p>
               </div>
             </Link>
             <Link
-              to="/dashboard/logs"
-              className="flex items-center text-[white] ml-6"
+              to="/dashboard/test3"
+              className="hover:text-[#001A35] flex items-center text-[white] ml-6"
             >
               <div
                 className={`flex items-center ${
-                  path.includes("logs") ? "border-r-8" : ""
+                  path.includes("test3") ? "border-r-8 border-r-[#001A35] text-[#001A35]" : ""
                 } w-full py-3`}
               >
-                <CgDatabase className="text-[24px] text-[white]" />
+                <RiRadioButtonLine className="text-[24px]" />
                 <p className="text-[15px] font-[inter] font-semibold ml-2">
-                  Logs
+                  Test 3
                 </p>
               </div>
             </Link>
@@ -78,7 +79,7 @@ function Dashboard({ siginOUt }) {
               onClick={() => {
                 siginOUt();
               }}
-              className="flex items-center text-[white] ml-6 cursor-pointer"
+              className="hover:text-[#001A35] flex items-center text-[white] ml-6 cursor-pointer"
             >
               <div className="flex items-center w-full py-3">
                 <TbLogout className="text-[24px]" />
@@ -99,7 +100,7 @@ function Dashboard({ siginOUt }) {
         ></div>
         <div className="outlet-body w-screen h-full outlet-media overflow-x-hidden dash_outlet">
           <MdOutlineMenu
-            className="dash_hamburger cursor-pointer text-[white]"
+            className="dash_hamburger cursor-pointer text-[black]"
             onClick={() => {
               setSidebar(!sidebar);
             }}

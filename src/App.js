@@ -50,7 +50,7 @@ class App extends Component {
             path="/"
             element={
               this.state.user ? (
-                <Navigate to="/dashboard/about" />
+                <Navigate to="/dashboard/test1" />
               ) : (
                 <AuthenticationForm />
               )
@@ -60,7 +60,7 @@ class App extends Component {
             path="/auth"
             element={
               this.state.user ? (
-                <Navigate to="/dashboard/about" />
+                <Navigate to="/dashboard/test1" />
               ) : (
                 <AuthenticationForm />
               )
@@ -74,10 +74,10 @@ class App extends Component {
               </Private_route>
             }
           >
-            <Route index element={<Monitor/>} />
-            <Route path="/dashboard/monitor" element={<Monitor />} />
-            {/* <Route path="/dashboard/about" element={<About />} /> */}
-            <Route path="/dashboard/logs" element={<Logs />} />
+            <Route index element={<About/>} />
+            <Route path="/dashboard/test2" element={<Monitor />} />
+            <Route path="/dashboard/test1" element={<About />} />
+            <Route path="/dashboard/test3" element={<Logs />} />
           </Route>
         </Routes>
       </div>

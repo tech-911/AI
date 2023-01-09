@@ -1,10 +1,5 @@
 .outlet-body {
-  background: linear-gradient(
-    89.32deg,
-    #00468a 13.18%,
-    rgba(0, 70, 149, 0.98) 44.49%,
-    rgba(0, 86, 175, 0.83) 88.32%
-  );
+  background: #e3e9ed;
 }
 
 .outlet-media > div:first-child {
@@ -36,7 +31,7 @@
       position: absolute;
       top: 0px;
       left: 0px;
-       @media screen and (max-width: 498px) {
+      @media screen and (max-width: 498px) {
         width: 70% !important;
       }
     }
