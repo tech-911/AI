@@ -1,3 +1,20 @@
+@mixin capture {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  background: #5d6a77;
+  border-radius: 8px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 160%;
+  color: #ffffff;
+}
+
 .monitor_wrapper {
   .monitor_section {
     padding-left: 1.5rem;
@@ -59,22 +76,19 @@
         width: 100%;
         height: 80%;
       }
-      .capture_button {
-        margin-top: 2rem;
+      .capture_button_wrapper {
         display: flex;
         flex-direction: row;
-        justify-content: center;
         align-items: center;
-        padding: 14px;
-        background: #5d6a77;
-        border-radius: 8px;
-        font-family: "Poppins";
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 160%;
-        color: #ffffff;
-        width: 40%;
+        justify-content: space-between;
+        width: 100%;
+        .capture_button1 {
+          @include capture;
+          width: 40%;
+        }
+        .capture_button2 {
+          @include capture;
+        }
       }
     }
   }
