@@ -2,9 +2,9 @@
   background: #e3e9ed;
 }
 
-.outlet-media > div:first-child {
-  height: 100%;
-}
+// .outlet-media > div:first-child {
+//   height: 100%;
+// }
 
 /* @media only screen and (max-width: 2537px) and (min-width: 1280px) {
   .outlet-media {
@@ -64,14 +64,7 @@
       }
     }
     .dash_outlet {
-      .dash_hamburger {
-        @media screen and (min-width: 850px) {
-          display: none;
-        }
-        font-size: 40px;
-        margin-left: 2.5rem;
-        margin-top: 2.5rem;
-      }
+      
     }
   }
 }

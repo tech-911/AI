@@ -9,11 +9,11 @@ import { MdOutlineMenu } from "react-icons/md";
 import { RiRadioButtonLine } from "react-icons/ri";
 import "./dash.scss";
 import { useState } from "react";
+import BreadCrumb from "../../components/dashboardBreadcrumbs/BreadCrumb";
 
 function Dashboard({ siginOUt }) {
   const [sidebar, setSidebar] = useState(0);
   const path = useLocation().pathname;
-
   return (
     <div className="h-full dash_wrapper">
       <div className="flex items-start h-full dash_container">
@@ -36,7 +36,9 @@ function Dashboard({ siginOUt }) {
             >
               <div
                 className={`flex items-center  ${
-                  path.includes("test1") ? "border-r-8 border-r-[#001A35] text-[#001A35]" : ""
+                  path.includes("test1")
+                    ? "border-r-8 border-r-[#001A35] text-[#001A35]"
+                    : ""
                 } w-full py-3`}
               >
                 <RiRadioButtonLine className="text-[24px]" />
@@ -51,7 +53,9 @@ function Dashboard({ siginOUt }) {
             >
               <div
                 className={`flex items-center ${
-                  path.includes("test2") ? "border-r-8 border-r-[#001A35] text-[#001A35]" : ""
+                  path.includes("test2")
+                    ? "border-r-8 border-r-[#001A35] text-[#001A35]"
+                    : ""
                 } w-full py-3`}
               >
                 <RiRadioButtonLine className="text-[24px]" />
@@ -66,7 +70,9 @@ function Dashboard({ siginOUt }) {
             >
               <div
                 className={`flex items-center ${
-                  path.includes("test3") ? "border-r-8 border-r-[#001A35] text-[#001A35]" : ""
+                  path.includes("test3")
+                    ? "border-r-8 border-r-[#001A35] text-[#001A35]"
+                    : ""
                 } w-full py-3`}
               >
                 <RiRadioButtonLine className="text-[24px]" />
@@ -99,11 +105,16 @@ function Dashboard({ siginOUt }) {
           }`}
         ></div>
         <div className="outlet-body w-screen h-full outlet-media overflow-x-hidden dash_outlet">
-          <MdOutlineMenu
-            className="dash_hamburger cursor-pointer text-[black]"
+          {/* <MdOutlineMenu
+            className="dash_hamburger cursor-pointer text-[black] mb-4"
             onClick={() => {
               setSidebar(!sidebar);
             }}
+          /> */}
+          <BreadCrumb
+            currentLink={path.split("/dashboard/")[1]}
+            setSidebar={setSidebar}
+            sidebar={sidebar}
           />
           <Outlet />
         </div>

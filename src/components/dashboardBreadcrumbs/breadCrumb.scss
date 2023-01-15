@@ -1,21 +1,32 @@
 .bread_crumb {
   background: #ffffff;
   box-shadow: 0px 10px 14px -7px rgba(0, 0, 0, 0.25);
-  height: 4rem;
+  // height: 4rem;
   padding-left: 1.5rem;
-  .link1 {
-    .link_item1 {
-      font-family: "Poppins";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 30px;
-      text-align: center;
-      letter-spacing: 0.075em;
-      color: #082a4d;
-      transition: color 0.6s ease-in-out;
-      &:hover {
-        color: #9c27b0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .dash_hamburger {
+    @media screen and (min-width: 850px) {
+      display: none;
+    }
+    font-size: 40px;
+    margin-right: 2rem;
+  }
+  .Bread_links {
+    .link1 {
+      .link_item1 {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 30px;
+        text-align: center;
+        letter-spacing: 0.075em;
+        color: #082a4d;
+        transition: color 0.6s ease-in-out;
+        &:hover {
+          color: #9c27b0;
+        }
       }
     }
   }

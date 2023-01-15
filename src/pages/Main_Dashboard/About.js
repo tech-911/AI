@@ -1,6 +1,5 @@
 import React from "react";
 import "./about.scss";
-import BreadCrumb from "../../components/dashboardBreadcrumbs/BreadCrumb";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FcProcess } from "react-icons/fc";
 import { MdFaceRetouchingOff } from "react-icons/md";
@@ -9,7 +8,6 @@ const About = () => {
   const Navigate = useNavigate();
   return (
     <div className="flex flex-col h-full about_wrapper">
-      <BreadCrumb currentLink="Test1" />
       <div className="test1_section1 mt-20 flex items-center justify-between mx-[1.5rem]">
         <div className="enroll flex flex-col items-center w-[30%]">
           <BsFillPersonFill className="text-[50px] text-[#082a4d]" />
