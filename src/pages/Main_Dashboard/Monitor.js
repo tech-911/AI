@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./monitor.scss";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Monitor = () => {
   const [imageSrc, setImageSrc] = useState(null);
@@ -8,13 +10,13 @@ const Monitor = () => {
   const [stopStream, setStopStream] = useState(0);
   const [folder, setFolder] = useState("");
   const [idValue, setIdValue] = useState(0);
+  const [disable, setDisable] = useState(1);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const folderRef = useRef();
 
   const capture = async () => {
     setIdValue(idValue + 1);
-    console.log(idValue);
     const context = canvasRef.current.getContext("2d");
     context.drawImage(
       videoRef.current,
@@ -29,18 +31,25 @@ const Monitor = () => {
     //   canvasRef.current.toDataURL("image/webp", 0.6).split(",")[1]
     // );
     try {
-      const imageRes = await axios.post("http://127.0.0.1:4000/capture", {
+      await axios.post("http://127.0.0.1:4000/capture", {
         id: idValue,
         folder_name: folder,
-        image: canvasRef.current.toDataURL("image/webp", 0.6).split(",")[1],
+        image: canvasRef.current.toDataURL("image/webp", 0.7).split(",")[1],
       });
-      console.log("ImageResponse: ", imageRes);
+      toast.success(`Saved ${folder}-${idValue} in ${folder}`, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
     } catch (error) {
-      console.log("Error: ", error);
+      console.log("captureError: ", error);
+      let errorValue = error.response.data.error;
+       toast.error(`Error: ${errorValue}`, {
+         position: toast.POSITION.TOP_RIGHT,
+       });
     }
   };
 
   const startVideo = async () => {
+    setDisable(0);
     setStopStream(!stopStream);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -53,24 +62,8 @@ const Monitor = () => {
       console.error(err);
     }
   };
-
-  const createFolder = async () => {
-    try {
-      const folderRes = await axios.post("http://127.0.0.1:4000/register", {
-        folder_name: folder,
-      });
-      console.log(folderRes);
-      folderRef.current.value = "";
-    } catch (error) {
-      console.log("Error: ", error);
-      folderRef.current.value = "";
-    }
-  };
-  const handleFolder = (e) => {
-    setFolder(e.target.value);
-  };
-
   const endVideo = async () => {
+    setDisable(1);
     videoRef.current.srcObject = null;
     videoRef.current.pause();
     setStopStream(!stopStream);
@@ -78,9 +71,32 @@ const Monitor = () => {
     setVstream(null);
   };
 
+  const createFolder = async () => {
+    try {
+      await axios.post("http://127.0.0.1:4000/register", {
+        folder_name: folder,
+      });
+
+      folderRef.current.value = "";
+      toast.success(`Created ${folder} folder`, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    } catch (error) {
+      console.log("Error creating folder: ", error);
+      let errorValue = error.response.data.error;
+      toast.error(`Error: ${errorValue}`, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      folderRef.current.value = "";
+    }
+  };
+  const handleFolder = (e) => {
+    setFolder(e.target.value);
+  };
+
   return (
     <div className="monitor_wrapper flex flex-col h-[100%] w-[100%]">
-      {/* <BreadCrumb currentLink="Test2" /> */}
+      <ToastContainer />
       <div className="monitor_section flex flex-row justify-between mt-20">
         <div className="folderName">
           <label className="folderNameLabel" htmlFor="folderName">
@@ -107,7 +123,11 @@ const Monitor = () => {
             <video ref={videoRef} className="w-full rounded-[8px]" />
           </div>
           <div className="capture_button_wrapper ">
-            <button onClick={capture} className="capture_button1">
+            <button
+              disabled={disable}
+              onClick={capture}
+              className="capture_button1"
+            >
               Capture
             </button>
             <button
