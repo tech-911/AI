@@ -3,8 +3,10 @@ import "./monitor.scss";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Monitor = () => {
+  const navigate = useNavigate();
   const [imageSrc, setImageSrc] = useState(null);
   const [vstream, setVstream] = useState(null);
   const [stopStream, setStopStream] = useState(0);
@@ -31,7 +33,7 @@ const Monitor = () => {
     //   canvasRef.current.toDataURL("image/webp", 0.6).split(",")[1]
     // );
     try {
-      await axios.post("http://127.0.0.1:4000/capture", {
+      await axios.post("https://facerecognition-lfz2.onrender.com/capture", {
         id: idValue,
         folder_name: folder,
         image: canvasRef.current.toDataURL("image/webp", 0.7).split(",")[1],
@@ -42,9 +44,13 @@ const Monitor = () => {
     } catch (error) {
       console.log("captureError: ", error);
       let errorValue = error.response.data.error;
-       toast.error(`Error: ${errorValue}`, {
-         position: toast.POSITION.TOP_RIGHT,
-       });
+      toast.error(`Error: ${errorValue}`, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+    if(idValue===5){
+      endVideo()
+      navigate("/dashboard/test1")
     }
   };
 
@@ -73,7 +79,7 @@ const Monitor = () => {
 
   const createFolder = async () => {
     try {
-      await axios.post("http://127.0.0.1:4000/register", {
+      await axios.post("https://facerecognition-lfz2.onrender.com/register", {
         folder_name: folder,
       });
 
