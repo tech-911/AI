@@ -29,7 +29,7 @@ const About = () => {
         <div className="train flex flex-col items-center w-[30%]">
           <MdFaceRetouchingOff className="text-[50px] text-[#00ff00]" />
           <p className="enroll_text mt-2 text-[#082a4d] cursor-pointer font-bold">
-            Face Access
+            Test Model
           </p>
         </div>
       </div>
