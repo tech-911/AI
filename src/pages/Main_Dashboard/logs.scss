@@ -1,53 +1,105 @@
-@media screen and (min-width: 1127px) {
-  .logs_table::-webkit-scrollbar {
-    display: none !important;
-  }
-}
-
 .logs_wrapper {
-  .logs_widget {
-    box-shadow: 38px 26px 140px -63px rgba(0, 0, 0, 0.25);
-    .logs_table {
-      @media screen and (max-width: 587px) {
-        margin-left: 2rem;
-        margin-right: 2rem;
-      }
-
-      &::-webkit-scrollbar {
-        background: #e0e0e0;
-        border-radius: 8px;
-        height: 10px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: #2f81cd;
-        border-radius: 8px;
-        border: 2px solid #e0e0e0;
-        &:hover {
-          background-color: #00468a;
-        }
-      }
-      .logs_title {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        justify-items: center;
-        width: 100%;
-        font-family: "Inter";
-        @media screen and (max-width: 1126px) {
-          width: 800px;
-        }
-      }
-      .logs_content {
-        width: 100%;
-        @media screen and (max-width: 1126px) {
-          width: 800px;
-        }
-        .logs_item1 {
-          * {
-            font-family: "Inter";
-          }
-          grid-template-columns: repeat(6, minmax(0, 1fr));
-          justify-items: center;
-        }
-      }
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 5rem 1.5rem;
+  @media screen and (max-width: 601px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logs_file_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dotted #5d6a77;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    width: 45%;
+    @media screen and (max-width: 601px) {
+      width: 100%;
+    }
+    .logs_file_icon {
+      color: #5d6a774b;
+      font-size: 12rem;
+    }
+    .logs_file_text {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+      color: #5d6a77;
+    }
+    .logs_file_label {
+      cursor: pointer;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+      background: #5d6a77;
+      border-radius: 8px;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      color: #ffffff;
+      width: 100%;
+    }
+    .logs_file_input {
+      display: none;
+    }
+    @media screen and (max-width: 601px) {
+      margin-bottom: 1rem;
+    }
+  }
+  .logs_folderName {
+    background: #ffffff;
+    box-shadow: 0px 4px 14px -7px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    width: 50%;
+    padding: 2.5rem 2.5rem;
+    height: fit-content;
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+    .logs_folderNameLabel {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+    }
+    .logs_folderNameInput {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 16px;
+      border: 1px solid #d3d0d9;
+      border-radius: 8px;
+    }
+    .logs_folderNameButton {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 14px;
+      background: #5d6a77;
+      border-radius: 8px;
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 160%;
+      color: #ffffff;
     }
   }
 }

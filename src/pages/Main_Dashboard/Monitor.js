@@ -33,10 +33,10 @@ const Monitor = () => {
     //   canvasRef.current.toDataURL("image/webp", 0.6).split(",")[1]
     // );
     try {
-      await axios.post("https://facerecognition-lfz2.onrender.com/capture", {
+      await axios.post("http://127.0.0.1:5000/capture", {
         id: idValue,
         folder_name: folder,
-        image: canvasRef.current.toDataURL("image/webp", 0.7).split(",")[1],
+        image: canvasRef.current.toDataURL("image/jpeg", 0.7).split(",")[1],
       });
       toast.success(`Saved ${folder}-${idValue} in ${folder}`, {
         position: toast.POSITION.TOP_RIGHT,
@@ -48,9 +48,9 @@ const Monitor = () => {
         position: toast.POSITION.TOP_RIGHT,
       });
     }
-    if(idValue===5){
-      endVideo()
-      navigate("/dashboard/test1")
+    if (idValue === 5) {
+      endVideo();
+      navigate("/dashboard/test1");
     }
   };
 
@@ -79,7 +79,7 @@ const Monitor = () => {
 
   const createFolder = async () => {
     try {
-      await axios.post("https://facerecognition-lfz2.onrender.com/register", {
+      await axios.post("http://127.0.0.1:5000/register", {
         folder_name: folder,
       });
 
