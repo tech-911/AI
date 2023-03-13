@@ -17,6 +17,7 @@ const Logs = () => {
     try {
       const res = await axios.post("http://127.0.0.1:5000/predict", formData);
       console.log(res);
+      console.log(res?.data?.image);
       toast.success(`Done Predicting`, {
         position: toast.POSITION.TOP_RIGHT,
       });
@@ -50,7 +51,7 @@ const Logs = () => {
       </div>
       <div className="logs_folderName">
         <label className="logs_folderNameLabel" htmlFor="folderName">
-          Preduction Result
+          Prediction Result
         </label>
         <input
           className="outline-[#5d6a77] mt-4 w-full logs_folderNameInput"
